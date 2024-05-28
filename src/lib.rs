@@ -8,7 +8,7 @@ use bevy::prelude::*;
 pub struct Cursor {
     pub position: Option<Vec2>,
     pub valid_position: Vec2,
-    window_scale: Vec2,
+    pub window_scale: Vec2,
     last_position: Option<Vec2>,
 }
 impl Default for Cursor {
@@ -29,9 +29,6 @@ impl Cursor {
     }
     pub fn valid_translation(&self) -> Vec2 {
         Self::convert_to_translation(self.valid_position, self.window_scale)
-    }
-    pub fn window_scale(&self) -> Vec2 {
-        self.window_scale
     }
     pub fn cursor_velocity(&self) -> Option<Vec2> {
         Some(self.position? - self.last_position?)
